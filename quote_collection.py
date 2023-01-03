@@ -1,3 +1,6 @@
+#  Copyright 2023 Mahid
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY
 from warren_buffett_quotes import  warren_buffett_quotes
 from confucius_quotes import confucius_quotes 
 from seneca_quotes import seneca_quotes
@@ -19,9 +22,9 @@ for item in background_list:
 clock=pygame.time.Clock()
 w=800
 h=600
-screen=pygame.display.set_mode((800,600))
+screen=pygame.display.set_mode((w,h))
+pygame.display.set_caption('Quotes')
 then=time.time()
-#color=(144, 238,144)
 color=(0,0,0)
 n_w=0
 n_c=0
@@ -35,16 +38,10 @@ ln_s=len(seneca_quotes)-1
 ln_l=len(lao_tzu_quotes)-1
 ln_a=len(aristotle_quotes)-1
 
-n=0
-
+#n=0
 x=0
-y=0
 nxt=False
-
-s1=100
-s2=100
 nx=True
-nxt_s=0
 game_running=True
 while game_running:
 	quote_surface=pygame.Surface((w,100),pygame.SRCALPHA)
@@ -53,46 +50,56 @@ while game_running:
 	quote_surface3=pygame.Surface((w,100),pygame.SRCALPHA)
 	quote_surface4=pygame.Surface((w,100),pygame.SRCALPHA)
 	
-
-	
-
 	clock.tick(60)
 	screen.fill(color)
 	for event in pygame.event.get():
 		if event.type==QUIT:
 			pygame.quit()
 			sys.exit()
+		if event.type==pygame.KEYDOWN:
+			if event.key==pygame.K_RIGHT:
+				nxt=True
+				nx=True
+			if event.key==pygame.K_LEFT:
+				if n_w-1>=0:
+					n_w-=1
+				else:
+					n_w=ln_w
+				if n_c-1>=0:
+					n_c-=1
+				else:
+					n_c=ln_c
+				if n_s>=0:
+					n_s-=1
+				else:
+					n_s=ln_s
+				if n_l>=ln_l:
+					n_l-=1
+				else:
+					n_l=ln_l
+				if n_a>=0:
+					n_a-=1
+				else:
+					n_a=ln_a		
+				
+				
+				
 	now=time.time()
 	d=now-then
 	if d>=9 and d<=10:
 		then=now
-		#n+=1
 		if nxt:
 			if x<=1:
 				nxt=False
-				#n+=1
-				#s1=60
-				#s2=70
 				
 		else:
-			n+=1
+			#n+=1
 			nxt=True
 			nx=True
-	#quote_surface1.set_alpha(50)
-	nxt_i=n+1
-	if n+1>li:
-		nxt_1=0
 	if nxt:
 		if nx:
 			x=x+((x+.1)*.1)
-			s1-=.5
-			s2-=.5
-			#nxt_s+=.1
-			#quote_surface.set_alpha(s1)
-			#quote_surface1.set_alpha(s2)
-			#quote_surface2.set_alpha(s1)
-			#quote_surface3.set_alpha(s2)
-			#quote_surface4.set_alpha(s1)
+
 			if x>=w:
 				nx=False
 				if n_w<ln_w:
@@ -118,18 +125,10 @@ while game_running:
 
 		elif x>0:
 			x-=(x*.2)
-			#nxt_s-=.1
 
 	
 	
-	#screen.blit(background[nxt_i],(0,0))
-	screen.blit(background[5],(0,0))
-	#quote_surface.fill((0,0,0))
-	#quote_surface1.fill((0,0,0))
-	#quote_surface2.fill((0,0,0))
-	#quote_surface3.fill((0,0,0))
-	#quote_surface4.fill((0,0,0))
-	
+	screen.blit(background[6],(0,0))
 	
 	quote_surface.set_alpha(90)
 	quote_surface1.set_alpha(80)
