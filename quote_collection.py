@@ -128,7 +128,7 @@ while game_running:
 
 	
 	
-	screen.blit(background[6],(0,0))
+	screen.blit(background[2],(0,0))
 	
 	quote_surface.set_alpha(90)
 	quote_surface1.set_alpha(80)
