@@ -13,5 +13,5 @@ aristotle_quotes=['''“A friend to all is a friend to none.”
 '''“The more you know, the more you know you don't know.”
 ― Aristotle''',
 
-'''Quality is not an act, it is a habit.
+'''“Quality is not an act, it is a habit.”
 ― Aristotle''']
