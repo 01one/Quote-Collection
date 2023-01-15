@@ -13,6 +13,7 @@ import glob
 pygame.init()
 
 background_list=glob.glob("backgrounds/*.jpg")
+icon=pygame.image.load('Quote collection.png')
 li=len(background_list)-1
 background=[]
 for item in background_list:
@@ -23,7 +24,8 @@ clock=pygame.time.Clock()
 w=800
 h=600
 screen=pygame.display.set_mode((w,h))
-pygame.display.set_caption('Quotes')
+pygame.display.set_icon(icon)
+pygame.display.set_caption('Quote Collection')
 then=time.time()
 color=(0,0,0)
 n_w=0
