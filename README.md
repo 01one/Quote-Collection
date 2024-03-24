@@ -4,5 +4,3 @@ Simple quote collection application made with pygame
 - Or you cange the quotes by using right and left arrow key
 
 # main program  quote-collection.py
-
-![](https://github.com/01one/Quote-Collection/blob/main/presentation/logo.png)
